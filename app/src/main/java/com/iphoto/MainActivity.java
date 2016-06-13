@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        InitViewPager();
     }
 
     public void InitViewPager(){
@@ -26,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         Fragment btFragment = new HorizontalPhotoFragment();
         fragmentList.add(btFragment);
 
-        //给ViewPager设置适配器
         mViewPager.setAdapter(new HoriPhotoFragmentAdapter(getSupportFragmentManager(), fragmentList));
         mViewPager.setCurrentItem(0);
     }
