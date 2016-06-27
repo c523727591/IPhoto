@@ -1,34 +1,27 @@
 package com.iphoto;
 
-import android.support.v4.app.Fragment;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
-import com.adapter.HoriPhotoFragmentAdapter;
-import com.fragment.HorizontalPhotoFragment;
-
-import java.util.ArrayList;
-
-public class MainActivity extends AppCompatActivity {
-    private ViewPager mViewPager = null;
-    private ArrayList<Fragment> fragmentList;
+public class MainActivity extends Activity {
+    private Button mTabLayoutButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        InitViewPager();
-    }
-
-    public void InitViewPager(){
-        mViewPager = (ViewPager)findViewById(R.id.mainActivity_viewpager_id);
-        fragmentList = new ArrayList<Fragment>();
-        Fragment btFragment = new HorizontalPhotoFragment();
-        fragmentList.add(btFragment);
-
-        mViewPager.setAdapter(new HoriPhotoFragmentAdapter(getSupportFragmentManager(), fragmentList));
-        mViewPager.setCurrentItem(0);
+        mTabLayoutButton = (Button)findViewById(R.id.button_tab_layout_id);
+        mTabLayoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName(MainActivity.this, "com.iphoto.TabLayoutActivity");
+                startActivity(intent);
+            }
+        });
     }
 }

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="common_black">#FF000000</color>
+    <color name="common_white">#FFFFFFFF</color>
+
+    <!-- add for main activity -->
+    <color name="main_activity_button_text_color">#FF000000</color>
 </resources>

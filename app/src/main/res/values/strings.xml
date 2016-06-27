@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">IPhoto</string>
+
+    <!-- add for main activity -->
+    <string name="main_activity_tab_layout">TabLayout Activity</string>
 </resources>
