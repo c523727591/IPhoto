@@ -3,4 +3,5 @@
 
     <!-- add for main activity -->
     <string name="main_activity_tab_layout">TabLayout Activity</string>
+    <string name="main_activity_disk_lru_cache">DiskLruCache Activity</string>
 </resources>

@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends Activity {
     private Button mTabLayoutButton = null;
+    private Button mDiskLruCacheButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClassName(MainActivity.this, "com.iphoto.TabLayoutActivity");
+                startActivity(intent);
+            }
+        });
+
+        mDiskLruCacheButton = (Button)findViewById(R.id.button_disk_lru_cache_id);
+        mDiskLruCacheButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName(MainActivity.this, "com.iphoto.DiskLruCacheTestActivity");
                 startActivity(intent);
             }
         });
