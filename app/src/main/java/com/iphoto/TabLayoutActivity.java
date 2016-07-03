@@ -1,5 +1,6 @@
 package com.iphoto;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 
+import com.fragment.FrontPageFragment;
 import com.fragment.TestFragment;
 
 import java.util.ArrayList;
@@ -42,8 +44,12 @@ public class TabLayoutActivity extends FragmentActivity {
 
         public TabLayoutViewPagerAdapter(FragmentManager fm) {
             super(fm);
+
+            Context context = getApplicationContext();
+
             mTitles = new ArrayList<String>();
-            mTitles.add(0, "TabLayout0");
+            mTitles.add(0, context.getResources().getString(R.string.front_page_fragment_title));
+
             mTitles.add(1, "TabLayout1");
             mTitles.add(2, "TabLayout2");
             mTitles.add(3, "TabLayout3");
@@ -58,10 +64,17 @@ public class TabLayoutActivity extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            TestFragment f = new TestFragment();
-            f.setContent(mTitles.get(position));
-            Log.d("DukeDing", mTitles.get(position) + ", hashCode = " + f.hashCode());
-            return f;
+            switch(position) {
+                case 0:
+                    FrontPageFragment frontPageFragment = new FrontPageFragment();
+                    return frontPageFragment;
+                default: {
+                    TestFragment f = new TestFragment();
+                    f.setContent(mTitles.get(position));
+                    Log.d("DukeDing", mTitles.get(position) + ", hashCode = " + f.hashCode());
+                    return f;
+                }
+            }
         }
 
         @Override

@@ -5,4 +5,7 @@
 
     <!-- add for main activity -->
     <dimen name="main_activity_button_text_size">24sp</dimen>
+
+    <!-- front page fragment-->
+    <dimen name="front_page_fragment_view_page_height">120dp</dimen>
 </resources>
