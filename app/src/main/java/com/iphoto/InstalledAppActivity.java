@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -45,6 +46,19 @@ public class InstalledAppActivity extends Activity {
         mGridView = (GridView)findViewById(R.id.installed_app_grid_view_id);
         mGridAdapter = new InstalledAppInfoGridAdapter(this);
         mGridView.setAdapter(mGridAdapter);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (null != parent) {
+                    InstalledAppInfoGridAdapter adapter = (InstalledAppInfoGridAdapter) parent.getAdapter();
+                    AppInfo info = (AppInfo)adapter.getItem(position);
+                    if (null != info) {
+                        Intent intent = getPackageManager().getLaunchIntentForPackage(info.packageName);
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
 
         mHandler = new UIHandler(this);
     }
@@ -151,10 +165,18 @@ public class InstalledAppActivity extends Activity {
             mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
             List<ResolveInfo> resolveInfoList = pm.queryIntentActivities(mainIntent, 0);
 
+            if (DEBUG_ENABLE) {
+                Log.d(DEBUG_TAG, "getPackageName() = " + getPackageName());
+            }
+
             for (ResolveInfo resolveInfo : resolveInfoList) {
                 boolean isHomeApp = false;
                 for (ResolveInfo homeAppInfo : homeAppList) {
                     if (homeAppInfo.activityInfo.packageName.equals(resolveInfo.activityInfo.packageName)) {
+                        isHomeApp = true;
+                        break;
+                    } else if (getPackageName().equals(resolveInfo.activityInfo.packageName)) {
+                        // this is myself
                         isHomeApp = true;
                         break;
                     }
@@ -170,7 +192,7 @@ public class InstalledAppActivity extends Activity {
                 appInfo.appIcon = resolveInfo.activityInfo.loadIcon(pm);
                 mList.add(appInfo);
                 if (DEBUG_ENABLE) {
-                    Log.d(DEBUG_TAG, "app name = " + appInfo.appName);
+                    Log.d(DEBUG_TAG, "app name = " + appInfo.appName + "package name = " + appInfo.packageName);
                 }
             }
             if (DEBUG_ENABLE) {
