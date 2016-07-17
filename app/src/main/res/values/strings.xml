@@ -4,6 +4,7 @@
     <!-- add for main activity -->
     <string name="main_activity_tab_layout">TabLayout Activity</string>
     <string name="main_activity_disk_lru_cache">DiskLruCache Activity</string>
+    <string name="main_activity_installed_app_info">Installed App Activity</string>
 
     <!-- front page fragment-->
     <string name="front_page_fragment_title">"头条"</string>

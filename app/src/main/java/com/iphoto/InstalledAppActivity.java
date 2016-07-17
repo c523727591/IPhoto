@@ -12,20 +12,30 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InstalledAppActivity extends Activity {
+    private static final boolean DEBUG_ENABLE = true;
+    private static final String DEBUG_TAG = "Duke_Ding";
+
     private static final int MSG_CODE_UPDATE_GRID_VIEW = 0;
 
     private BroadcastReceiver mReceiver = null;
     private UIHandler mHandler = null;
 
     private GridView mGridView = null;
+    private InstalledAppInfoGridAdapter mGridAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,8 @@ public class InstalledAppActivity extends Activity {
         setContentView(R.layout.installed_app_activity_layout);
 
         mGridView = (GridView)findViewById(R.id.installed_app_grid_view_id);
+        mGridAdapter = new InstalledAppInfoGridAdapter(this);
+        mGridView.setAdapter(mGridAdapter);
 
         mHandler = new UIHandler(this);
     }
@@ -68,7 +80,7 @@ public class InstalledAppActivity extends Activity {
     }
 
     private void loadInstalledAppInfo() {
-        LoadInstalledAppInfoTsk task = new LoadInstalledAppInfoTsk();
+        LoadInstalledAppInfoTsk task = new LoadInstalledAppInfoTsk(mGridAdapter);
         PackageManager pm = getPackageManager();
         task.execute(pm);
     }
@@ -118,6 +130,14 @@ public class InstalledAppActivity extends Activity {
     }
 
     private class LoadInstalledAppInfoTsk extends AsyncTask<PackageManager, Void, Void> {
+        private InstalledAppInfoGridAdapter mAdapter = null;
+        private ArrayList<AppInfo> mList = null;
+
+        public LoadInstalledAppInfoTsk(InstalledAppInfoGridAdapter adapter) {
+            mAdapter = adapter;
+            mList = new ArrayList<AppInfo>();
+        }
+
         @Override
         protected Void doInBackground(PackageManager... params) {
             PackageManager pm = params[0];
@@ -148,23 +168,99 @@ public class InstalledAppActivity extends Activity {
                 appInfo.packageName = resolveInfo.activityInfo.packageName;
                 appInfo.appName = resolveInfo.activityInfo.loadLabel(pm).toString();
                 appInfo.appIcon = resolveInfo.activityInfo.loadIcon(pm);
+                mList.add(appInfo);
+                if (DEBUG_ENABLE) {
+                    Log.d(DEBUG_TAG, "app name = " + appInfo.appName);
+                }
+            }
+            if (DEBUG_ENABLE) {
+                Log.d(DEBUG_TAG, "installed app size = " + mList.size());
             }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
+            if (mList.size() > 0) {
+                mAdapter.setAdapterData(mList);
+            }
         }
     }
 }
 
 class ItemHolder {
-    public ImageView mIcon;
-    public TextView mName;
+    public ImageView mIconImageView;
+    public TextView mNameTextView;
 }
 
 class AppInfo {
     public String appName = "";
     public String packageName = "";
     public Drawable appIcon = null;
+}
+
+class InstalledAppInfoGridAdapter extends BaseAdapter {
+    private Context mContext = null;
+    private ArrayList<AppInfo> mAppList = null;
+
+    public InstalledAppInfoGridAdapter(Context context) {
+        mContext = context;
+    }
+
+    public void setAdapterData(ArrayList<AppInfo> list) {
+        mAppList = list;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getCount() {
+        if (null == mAppList) {
+            return 0;
+        }
+        return mAppList.size();
+    }
+
+    @Override
+    public AppInfo getItem(int position) {
+        if (null == mAppList) {
+            return null;
+        }
+
+        if (position > -1 && position < mAppList.size()) {
+            return mAppList.get(position);
+        }
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (null == mAppList) {
+            return null;
+        }
+
+        if (null == convertView) {
+            View root = LayoutInflater.from(mContext).inflate(R.layout.installed_app_grid_view_item_layout, null);
+
+            ItemHolder itemHolder = new ItemHolder();
+            itemHolder.mNameTextView = (TextView)root.findViewById(R.id.installed_app_item_text_id);
+            itemHolder.mIconImageView = (ImageView)root.findViewById(R.id.installed_app_item_image_id);
+            root.setTag(itemHolder);
+
+            itemHolder.mNameTextView.setText(mAppList.get(position).appName);
+            itemHolder.mIconImageView.setImageDrawable(mAppList.get(position).appIcon);
+            return root;
+        } else {
+            ItemHolder holder = (ItemHolder)convertView.getTag();
+            if (null != holder) {
+                holder.mNameTextView.setText(mAppList.get(position).appName);
+                holder.mIconImageView.setImageDrawable(mAppList.get(position).appIcon);
+            }
+            return convertView;
+        }
+    }
 }

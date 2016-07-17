@@ -8,5 +8,9 @@
     <GridView
         android:id="@+id/installed_app_grid_view_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:horizontalSpacing="6dp"
+        android:verticalSpacing="6dp"
+        android:columnWidth="60dp"
+        android:numColumns="auto_fit"/>
 </LinearLayout>

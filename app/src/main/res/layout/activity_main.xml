@@ -24,5 +24,13 @@
             android:text="@string/main_activity_disk_lru_cache"
             android:textSize="@dimen/main_activity_button_text_size"
             android:textColor="@color/main_activity_button_text_color"/>
+
+        <Button
+            android:id="@+id/button_installed_app_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_activity_installed_app_info"
+            android:textSize="@dimen/main_activity_button_text_size"
+            android:textColor="@color/main_activity_button_text_color"/>
     </LinearLayout>
 </RelativeLayout>

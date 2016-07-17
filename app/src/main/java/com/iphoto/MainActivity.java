@@ -9,6 +9,7 @@ import android.widget.Button;
 public class MainActivity extends Activity {
     private Button mTabLayoutButton = null;
     private Button mDiskLruCacheButton = null;
+    private Button mInstalledAppButton = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,16 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClassName(MainActivity.this, "com.iphoto.DiskLruCacheTestActivity");
+                startActivity(intent);
+            }
+        });
+
+        mInstalledAppButton = (Button)findViewById(R.id.button_installed_app_id);
+        mInstalledAppButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName(MainActivity.this, "com.iphoto.InstalledAppActivity");
                 startActivity(intent);
             }
         });
