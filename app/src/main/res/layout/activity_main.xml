@@ -3,34 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/main_activity_layout_margin"
     android:gravity="center"
     tools:context="com.iphoto.MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/button_tab_layout_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_activity_tab_layout"
-            android:textSize="@dimen/main_activity_button_text_size"
-            android:textColor="@color/main_activity_button_text_color"/>
-        <Button
-            android:id="@+id/button_disk_lru_cache_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_activity_disk_lru_cache"
-            android:textSize="@dimen/main_activity_button_text_size"
-            android:textColor="@color/main_activity_button_text_color"/>
-
-        <Button
-            android:id="@+id/button_installed_app_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/main_activity_installed_app_info"
-            android:textSize="@dimen/main_activity_button_text_size"
-            android:textColor="@color/main_activity_button_text_color"/>
-    </LinearLayout>
+    <ListView
+        android:id="@+id/main_activity_list_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>
