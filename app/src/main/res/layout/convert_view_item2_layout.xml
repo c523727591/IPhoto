@@ -7,7 +7,7 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/convert_view_item1_text_view_id"
+        android:id="@+id/convert_view_item2_text_view_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
