@@ -1,0 +1,39 @@
+一、编译环境配置
+
+1.安装jdk，配置JAVA_HOME环境变量，添加到PATH环境变量，配置完成后，通过java -v来查看是否安装成功（jdk版本最好使用1.7以上）
+
+2.下载gradle完整包，下载地址http://www.gradle.org/downloads，下载所需版本，比如gradle-2.10
+
+3.解压gradle完整包，bin目录下有gradle可执行程序
+
+4.配置GRADLE_HOME环境变量（配置为Gradle解压的那个目录），然后将$GRADLE_HOME/bin添加到PATH环境变量中
+
+5.使用gradlew -v 查看gradle是否安装成功
+
+6.将Android SDK路径配置到PATH环境变量
+
+二、常用gradle编译命令
+
+1.gradle clean 清除build目录文件
+
+2.gradle build 编译debug和release版本应用
+
+3.gradle assembleDebug 编译debug版本应用
+
+4.gradle assembleRelease 编译release版本应用 想了解更多gradle命令，可通过gradle tasks查看
+
+三、编译遇到的问题
+
+1.目前Aurora项目下android应用lint检查不通过，会导致编译中断，临时解决方案：
+
+在build.gradle文件中添加：
+
+android {
+
+    lintOptions {
+
+        abortOnError false
+
+    }
+
+}
