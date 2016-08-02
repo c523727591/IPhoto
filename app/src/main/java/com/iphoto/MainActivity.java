@@ -13,6 +13,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.util.ILog;
+import com.util.IUtils;
+
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
@@ -39,6 +42,21 @@ public class MainActivity extends Activity {
                 }
             }
         });
+
+        test();
+    }
+
+    private void test() {
+        String s1 = new String("Duke123456789");
+        String s2 = new String("Duke123456789");
+        ILog.d("s1 hashcode = " + s1.hashCode() + ", s2 hashcode = " + s2.hashCode());
+        if (s1.hashCode() == s2.hashCode()) {
+            ILog.d("s1 hashcode == s2 hashcode");
+        }
+
+        ILog.d("0xFFFFFFFF = " + IUtils.hexIntStringToInt("0xFFFFFFFF", 0));
+        ILog.d("0xFF112345 = " + IUtils.hexIntStringToInt("0xFF112345", 0));
+        ILog.d("0x67112345 = " + IUtils.hexIntStringToInt("0x67112345", 0));
     }
 }
 
