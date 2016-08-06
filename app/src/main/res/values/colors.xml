@@ -9,4 +9,14 @@
 
     <!-- add for main activity -->
     <color name="main_activity_button_text_color">#FF000000</color>
+
+    <!-- add for combination button -->
+    <color name="combination_button_text_normal_color">#FF2663C4</color>
+    <color name="combination_button_text_selected_color">#FFFFFFFF</color>
+    <color name="combination_button_text_pressed_color">#FF2663C4</color>
+    <color name="combination_button_stroke_color">#FF2663C4</color>
+    <color name="combination_button_solid_normal_color">#FFFFFFFF</color>
+    <color name="combination_button_solid_selected_color">#FF2663C4</color>
+    <color name="combination_button_solid_pressed_color">#FF9BBAEC</color>
+
 </resources>

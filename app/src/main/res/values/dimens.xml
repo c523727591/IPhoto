@@ -7,4 +7,9 @@
 
     <!-- front page fragment-->
     <dimen name="front_page_fragment_view_page_height">120dp</dimen>
+
+    <!-- add for combination button -->
+    <dimen name="combination_button_stroke_width">1dp</dimen>
+    <dimen name="combination_button_corner_radius">10dp</dimen>
+
 </resources>

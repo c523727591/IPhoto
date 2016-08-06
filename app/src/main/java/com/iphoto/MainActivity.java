@@ -99,6 +99,12 @@ class SampleItemListAdapter extends BaseAdapter {
         itemInfo.mTitleResId = R.string.main_activity_convert_view;
         itemInfo.mClassName = "com.iphoto.ConvertViewActivity";
         mSampleList.add(itemInfo);
+
+        itemInfo = new SampleItemInfo();
+        itemInfo.mOrder = 5;
+        itemInfo.mTitleResId = R.string.main_activity_view_style;
+        itemInfo.mClassName = "com.iphoto.ViewStyleActivity";
+        mSampleList.add(itemInfo);
     }
 
     public SampleItemListAdapter(Context context) {

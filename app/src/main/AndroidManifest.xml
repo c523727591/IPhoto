@@ -31,6 +31,7 @@
         <activity android:name=".DiskLruCacheTestActivity"/>
         <activity android:name=".InstalledAppActivity"/>
         <activity android:name=".ConvertViewActivity"/>
+        <activity android:name=".ViewStyleActivity"/>
 
     </application>
 
