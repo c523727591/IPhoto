@@ -4,11 +4,6 @@
             <item>
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_pressed_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_stroke_color" />
@@ -21,11 +16,6 @@
                 android:bottom="@dimen/combination_button_stroke_width">
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_pressed_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_solid_pressed_color" />
@@ -38,11 +28,6 @@
             <item>
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_selected_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_stroke_color" />
@@ -55,11 +40,6 @@
                 android:bottom="@dimen/combination_button_stroke_width">
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_selected_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_solid_selected_color" />
@@ -72,11 +52,6 @@
             <item>
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_normal_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_stroke_color" />
@@ -89,11 +64,6 @@
                 android:bottom="@dimen/combination_button_stroke_width">
                 <shape android:shape="rectangle">
                     <solid android:color="@color/combination_button_solid_normal_color" />
-                    <corners
-                        android:topLeftRadius="0dp"
-                        android:topRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomRightRadius="@dimen/combination_button_corner_radius"
-                        android:bottomLeftRadius="0dp" />
                     <stroke
                         android:width="@dimen/combination_button_stroke_width"
                         android:color="@color/combination_button_solid_normal_color" />
