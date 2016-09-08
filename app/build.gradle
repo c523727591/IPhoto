@@ -16,7 +16,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        // 如下代码实现：编译出来的apk名称以包名命名。注：工程的模块名必须是"app"
+
+        // The follow codes make the output apk named after package name,
+        // but the project modular name must be "app".
         android.applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 def alignedOutputFile = output.outputFile
