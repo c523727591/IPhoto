@@ -16,6 +16,22 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        // 如下代码实现：编译出来的apk名称以包名命名。注：工程的模块名必须是"app"
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                def alignedOutputFile = output.outputFile
+                if (alignedOutputFile != null && alignedOutputFile.name.endsWith('.apk')) {
+                    def fileName = alignedOutputFile.name.replace("app","${defaultConfig.applicationId}")
+                    output.outputFile = new File(alignedOutputFile.parent, fileName)
+                }
+
+                def unalignedOutputFile = output.packageApplication.outputFile
+                if (unalignedOutputFile != null && unalignedOutputFile.name.endsWith('.apk')) {
+                    def unalignedFileName = unalignedOutputFile.name.replace("app", "${defaultConfig.applicationId}")
+                    output.packageApplication.outputFile = new File(unalignedOutputFile.parent, unalignedFileName)
+                }
+            }
+        }
     }
 }
 
@@ -26,4 +42,6 @@ dependencies {
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:recyclerview-v7:23.3.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3.1'
 }
