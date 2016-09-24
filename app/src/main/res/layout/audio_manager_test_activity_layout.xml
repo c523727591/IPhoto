@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getRingerMode: "/>
+        <TextView
+            android:id="@+id/get_ringer_mode_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="getVibrateSetting: "/>
+        <TextView
+            android:id="@+id/get_vibrate_setting_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/set_ring_mode_silent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Ring Silent"/>
+            <Button
+                android:id="@+id/set_ring_mode_vibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Ring Vibrate"/>
+            <Button
+                android:id="@+id/set_ring_mode_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Ring Normal"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/set_vibrate_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Vibrate Off"/>
+            <Button
+                android:id="@+id/set_vibrate_on"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Vibrate On"/>
+            <Button
+                android:id="@+id/set_vibrate_silent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Set Vibrate Silent"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

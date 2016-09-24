@@ -34,6 +34,7 @@
         <activity android:name=".ConvertViewActivity"/>
         <activity android:name=".ViewStyleActivity"/>
         <activity android:name=".GSONActivity"/>
+        <activity android:name=".AudioManagerTestActivity"/>
 
     </application>
 
