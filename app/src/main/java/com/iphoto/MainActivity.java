@@ -105,6 +105,12 @@ class SampleItemListAdapter extends BaseAdapter {
         itemInfo.mTitleResId = R.string.main_activity_view_style;
         itemInfo.mClassName = "com.iphoto.ViewStyleActivity";
         mSampleList.add(itemInfo);
+
+        itemInfo = new SampleItemInfo();
+        itemInfo.mOrder = 6;
+        itemInfo.mTitleResId = R.string.gson_activity_title;
+        itemInfo.mClassName = "com.iphoto.GSONActivity";
+        mSampleList.add(itemInfo);
     }
 
     public SampleItemListAdapter(Context context) {

@@ -10,4 +10,6 @@
 
     <!-- front page fragment-->
     <string name="front_page_fragment_title">"头条"</string>
+
+    <string name="gson_activity_title">GSON Example</string>
 </resources>

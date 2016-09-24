@@ -33,6 +33,7 @@
         <activity android:name=".InstalledAppActivity"/>
         <activity android:name=".ConvertViewActivity"/>
         <activity android:name=".ViewStyleActivity"/>
+        <activity android:name=".GSONActivity"/>
 
     </application>
 
