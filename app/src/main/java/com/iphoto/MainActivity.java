@@ -64,6 +64,13 @@ class SampleItemInfo {
     public int mOrder;
     public int mTitleResId;
     public String mClassName;
+
+    SampleItemInfo() {}
+    SampleItemInfo(int order, int resId, String name) {
+        this.mOrder = order;
+        this.mTitleResId = resId;
+        this.mClassName = name;
+    }
 }
 
 class SampleItemHolder {
@@ -76,46 +83,31 @@ class SampleItemListAdapter extends BaseAdapter {
     private ArrayList<SampleItemInfo> mSampleList = new ArrayList<SampleItemInfo>();
 
     private void createSampleList() {
-        SampleItemInfo itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 1;
-        itemInfo.mTitleResId = R.string.main_activity_tab_layout;
-        itemInfo.mClassName = "com.iphoto.TabLayoutActivity";
+        SampleItemInfo itemInfo = null;
+        int order = 0;
+
+        itemInfo = new SampleItemInfo(++order, R.string.animation_study_activity, "com.animation.AnimationShow");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 2;
-        itemInfo.mTitleResId = R.string.main_activity_disk_lru_cache;
-        itemInfo.mClassName = "com.iphoto.DiskLruCacheTestActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.main_activity_tab_layout, "com.iphoto.TabLayoutActivity");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 3;
-        itemInfo.mTitleResId = R.string.main_activity_installed_app_info;
-        itemInfo.mClassName = "com.iphoto.InstalledAppActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.main_activity_disk_lru_cache, "com.iphoto.DiskLruCacheTestActivity");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 4;
-        itemInfo.mTitleResId = R.string.main_activity_convert_view;
-        itemInfo.mClassName = "com.iphoto.ConvertViewActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.main_activity_installed_app_info, "com.iphoto.InstalledAppActivity");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 5;
-        itemInfo.mTitleResId = R.string.main_activity_view_style;
-        itemInfo.mClassName = "com.iphoto.ViewStyleActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.main_activity_convert_view, "com.iphoto.ConvertViewActivity");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 6;
-        itemInfo.mTitleResId = R.string.gson_activity_title;
-        itemInfo.mClassName = "com.iphoto.GSONActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.main_activity_view_style, "com.iphoto.ViewStyleActivity");
         mSampleList.add(itemInfo);
 
-        itemInfo = new SampleItemInfo();
-        itemInfo.mOrder = 7;
-        itemInfo.mTitleResId = R.string.audio_manager_test_title;
-        itemInfo.mClassName = "com.iphoto.AudioManagerTestActivity";
+        itemInfo = new SampleItemInfo(++order, R.string.gson_activity_title, "com.iphoto.GSONActivity");
+        mSampleList.add(itemInfo);
+
+        itemInfo = new SampleItemInfo(++order, R.string.audio_manager_test_title, "com.iphoto.AudioManagerTestActivity");
         mSampleList.add(itemInfo);
     }
 

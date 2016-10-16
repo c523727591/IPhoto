@@ -26,9 +26,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".TabLayoutActivity">
-        </activity>
+        <activity android:name="com.animation.AnimationShow"/>
+        <activity android:name="com.animation.TweenAnimation"/>
 
+        <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".DiskLruCacheTestActivity"/>
         <activity android:name=".InstalledAppActivity"/>
         <activity android:name=".ConvertViewActivity"/>
