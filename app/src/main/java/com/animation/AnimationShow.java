@@ -20,6 +20,9 @@ public class AnimationShow extends Activity implements View.OnClickListener {
 
         Button tweenAnimationButton = (Button) findViewById(R.id.tween_animation_button_id);
         tweenAnimationButton.setOnClickListener(this);
+
+        Button viewAnimationButton = (Button) findViewById(R.id.property_animation_button_id);
+        viewAnimationButton.setOnClickListener(this);
     }
 
     @Override
@@ -34,7 +37,10 @@ public class AnimationShow extends Activity implements View.OnClickListener {
             case R.id.frame_animation_button_id: {
                 break;
             }
-            case R.id.view_animation_button_id: {
+            case R.id.property_animation_button_id: {
+                Intent intent = new Intent();
+                intent.setClassName(AnimationShow.this, "com.animation.PropertyAnimatorActivity");
+                startActivity(intent);
                 break;
             }
             default: {

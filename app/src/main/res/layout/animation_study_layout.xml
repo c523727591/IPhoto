@@ -25,9 +25,9 @@
             android:text="@string/frame_animation" />
 
         <Button
-            android:id="@+id/view_animation_button_id"
+            android:id="@+id/property_animation_button_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/view_animation" />
+            android:text="@string/property_animation" />
     </LinearLayout>
 </LinearLayout>
