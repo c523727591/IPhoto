@@ -1,4 +1,4 @@
-package com.iphoto;
+package com.viewstudy;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,21 +12,23 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.util.ILog;
-import com.util.IUtils;
+import com.iphoto.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends Activity {
+/**
+ * Created by duke on 16-10-31.
+ */
+
+public class ViewStudyActivity extends Activity {
     private ListView mListView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.view_study_activity_layout);
 
-        mListView = (ListView)findViewById(R.id.main_activity_list_view_id);
+        mListView = (ListView)findViewById(R.id.view_study_activity_list_view_id);
         mListView.setAdapter(new SampleItemListAdapter(this));
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -36,27 +38,12 @@ public class MainActivity extends Activity {
                     SampleItemInfo info = (SampleItemInfo)adapter.getItem(position);
                     if (null != info) {
                         Intent intent = new Intent();
-                        intent.setClassName(MainActivity.this, info.mClassName);
+                        intent.setClassName(ViewStudyActivity.this, info.mClassName);
                         startActivity(intent);
                     }
                 }
             }
         });
-
-        test();
-    }
-
-    private void test() {
-        String s1 = new String("Duke123456789");
-        String s2 = new String("Duke123456789");
-        ILog.d("s1 hashcode = " + s1.hashCode() + ", s2 hashcode = " + s2.hashCode());
-        if (s1.hashCode() == s2.hashCode()) {
-            ILog.d("s1 hashcode == s2 hashcode");
-        }
-
-        ILog.d("0xFFFFFFFF = " + IUtils.hexIntStringToInt("0xFFFFFFFF", 0));
-        ILog.d("0xFF112345 = " + IUtils.hexIntStringToInt("0xFF112345", 0));
-        ILog.d("0x67112345 = " + IUtils.hexIntStringToInt("0x67112345", 0));
     }
 }
 
@@ -86,31 +73,7 @@ class SampleItemListAdapter extends BaseAdapter {
         SampleItemInfo itemInfo = null;
         int order = 0;
 
-        itemInfo = new SampleItemInfo(++order, R.string.animation_study_activity, "com.animation.AnimationShow");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.view_study_view_study, "com.viewstudy.ViewStudyActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.main_activity_tab_layout, "com.iphoto.TabLayoutActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.main_activity_disk_lru_cache, "com.iphoto.DiskLruCacheTestActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.main_activity_installed_app_info, "com.iphoto.InstalledAppActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.main_activity_convert_view, "com.iphoto.ConvertViewActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.main_activity_view_style, "com.iphoto.ViewStyleActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.gson_activity_title, "com.iphoto.GSONActivity");
-        mSampleList.add(itemInfo);
-
-        itemInfo = new SampleItemInfo(++order, R.string.audio_manager_test_title, "com.iphoto.AudioManagerTestActivity");
+        itemInfo = new SampleItemInfo(++order, R.string.view_study_focus_test, "com.viewstudy.FocusTestActivity");
         mSampleList.add(itemInfo);
     }
 

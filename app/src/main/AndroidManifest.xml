@@ -30,6 +30,8 @@
         <activity android:name="com.animation.AnimationShow"/>
         <activity android:name="com.animation.ViewAnimation"/>
         <activity android:name="com.animation.PropertyAnimatorActivity"/>
+        <activity android:name="com.viewstudy.ViewStudyActivity"/>
+        <activity android:name="com.viewstudy.FocusTestActivity"/>
 
         <activity android:name=".TabLayoutActivity"/>
         <activity android:name=".DiskLruCacheTestActivity"/>

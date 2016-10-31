@@ -1,3 +1,5 @@
 <resources>
     <string name="common_text_ok">OK</string>
+    <string name="common_text_cancel">Cancel</string>
+    <string name="common_text_confirm">Confirm</string>
 </resources>
