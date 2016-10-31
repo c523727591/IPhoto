@@ -13,16 +13,16 @@
         android:gravity="center_horizontal">
 
         <Button
-            android:id="@+id/tween_animation_button_id"
+            android:id="@+id/view_animation_button_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tween_animation" />
+            android:text="@string/view_animation" />
 
         <Button
-            android:id="@+id/frame_animation_button_id"
+            android:id="@+id/drawable_animation_button_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/frame_animation" />
+            android:text="@string/drawable_animation" />
 
         <Button
             android:id="@+id/property_animation_button_id"

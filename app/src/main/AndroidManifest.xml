@@ -28,7 +28,7 @@
         </activity>
 
         <activity android:name="com.animation.AnimationShow"/>
-        <activity android:name="com.animation.TweenAnimation"/>
+        <activity android:name="com.animation.ViewAnimation"/>
         <activity android:name="com.animation.PropertyAnimatorActivity"/>
 
         <activity android:name=".TabLayoutActivity"/>

@@ -1,8 +1,9 @@
 <resources>
     <string name="animation_study_activity">Animation Study</string>
-    <string name="tween_animation">Tween Animation</string>
-    <string name="frame_animation">Frame Animation</string>
+    <string name="view_animation">View Animation</string>
+    <string name="drawable_animation">Drawable Animation</string>
     <string name="property_animation">Property Animation</string>
 
-    <string name="alpha_animation">Alpha Tween Animation</string>
+    <string name="alpha_animation">Alpha View Animation</string>
+    <string name="translate_animation">Translate View Animation</string>
 </resources>
